@@ -27,7 +27,7 @@ func main() {
 		return
 	}
 
-	// If the -meta flag is passed, get and print the metadata
+	//TODO: Turn this into a switch statement instead of a bunch of if/else statements:
 	if *metaFlag {
 		err := getMetadata(data)
 		if err != nil {
