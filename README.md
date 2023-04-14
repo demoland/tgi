@@ -52,10 +52,13 @@ To run the TSI tool, use the following syntax:
 
 Here's a list of available flags:
 
-`-file (string):` Specify the JSON file to parse.
-`-meta` Print statefile metadata.
-`-outputs` Print outputs.
-`-resources` Print the number of resources under management.
+* `-file (string):` Specify the JSON file to parse.
+
+* `-meta` Print statefile metadata.
+
+* `-outputs` Print outputs.
+
+* `-resources` Print the number of resources under management.
 
 **Examples**
 To print the statefile metadata:
