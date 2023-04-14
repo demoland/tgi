@@ -37,7 +37,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TSI_GH_TOKEN }}
         with:
           tag_name: v${{ env.REVISION }}
           release_name: Release v${{ env.REVISION }}
@@ -50,7 +50,7 @@ jobs:
       - name: Upload Linux Binary
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TSI_GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./tsi-linux
@@ -60,7 +60,7 @@ jobs:
       - name: Upload Darwin Binary
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TSI_GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./tsi-darwin
