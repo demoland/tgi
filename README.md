@@ -8,39 +8,21 @@ Terraform State Inspector (TSI) is a command-line tool that helps you parse and 
 
 ## Download Instructions
 
-To download the TSI tool, you can either clone the repository or download the zip file from the repository page.
+To download the TSI tool, you can either clone the repository and build or download the binary from the releases page.  
 
-## Cloning the repository
+## Release: 
+The [releases page](https://github.com/demoland/tsi/releases) has the latest version of the binaries, build for darwin  and linux.
 
-If you have git installed, you can clone the repository using the following command:
-
-```bash
-git clone https://github.com/yourusername/terraform-state-inspector.git
-```
-
-## Downloading the zip file
-
-Visit the TSI [repository page](https://github.com/demoland/tsi.git) and click on the green "Code" button. Select "Download ZIP" from the dropdown menu and extract the contents to your desired location.
-
-## Build Instructions
-
-To build the TSI tool, you need to have the Go language installed on your system. Follow the instructions below to build the tool:
-
-**Navigate to the TSI directory:**
+**Example:**
+* Browse to: https://github.com/demoland/tsi/releases
+* Download the tsi-darwin binary: 
 
 ```bash
-cd terraform-state-inspector
-```
-
-**Build the binary:**
-
-```bash
-go build *.go -o tsi
-cp tsi /usr/local/bin
+cp tsi-darwin /usr/local/bin/
 chmod +x /usr/local/bin/tsi
 ```
 
-This will create an executable binary called tsi in the current directory, then copy to your executable path and enable execution permission.
+This will install the tsi binary  executable  called tsi in the current directory, then copy to your executable path and enable execution permission.
 
 ## Run Commands
 
@@ -67,13 +49,13 @@ To print the statefile metadata:
 ./tsi -file my-state-file.json -meta
 ```
 
-To print the outputs:
+To print the state outputs:
 
 ```bash
 ./tsi -file my-state-file.json -outputs
 ```
 
-To print the number of resources under management:
+To print the data and resources and the current number of resources under management that are managed in statefile:
 
 ```bash
 ./tsi -file my-state-file.json -resources
