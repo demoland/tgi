@@ -1,2 +1,2 @@
-# tgi
-Terraform state Information Getter
+# TSI
+Terraform State Inspector
