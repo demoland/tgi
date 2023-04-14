@@ -36,8 +36,8 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
+        # env:
+        #   TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.REVISION }}
           release_name: Release v${{ env.REVISION }}
@@ -47,22 +47,25 @@ jobs:
             ${{ join(github.event.commits.*.message, '\n- ') }}
           draft: false
           prerelease: false
+          token: ${{secrets.TSI_GITHUB_TOKEN}}
       - name: Upload Linux Binary
         uses: actions/upload-release-asset@v1
-        env:
-          TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
+        # env:
+        #   TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./tsi-linux
           asset_name: tsi-linux
           asset_content_type: application/octet-stream
+          token: ${{secrets.TSI_GITHUB_TOKEN}}
 
       - name: Upload Darwin Binary
         uses: actions/upload-release-asset@v1
-        env:
-          TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
+        # env:
+        #   TSI_GITHUB_TOKEN: ${{ secrets.TSI_GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./tsi-darwin
           asset_name: tsi-darwin
           asset_content_type: application/octet-stream
+          token: ${{secrets.TSI_GITHUB_TOKEN}}
